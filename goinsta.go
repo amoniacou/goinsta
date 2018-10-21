@@ -127,6 +127,11 @@ func (inst *Instagram) SetProxy(url string, insecure bool) error {
 	return err
 }
 
+// SetHTTPTransport sets SOCKS5 proxy for connection.
+func (inst *Instagram) SetHTTPTransport(transport *http.Transport) {
+	inst.c.Transport = transport
+}
+
 // UnsetProxy unsets proxy for connection.
 func (inst *Instagram) UnsetProxy() {
 	inst.c.Transport = nil
